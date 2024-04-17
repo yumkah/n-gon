@@ -1895,8 +1895,10 @@ const tech = {
         },
         requires: "",
         effect() {
+            for(let i = 0; i < 52; i++) {
             b.orbitBot();
             tech.orbitBotCount++;
+            }
         },
         remove() {
             if (this.count) {
