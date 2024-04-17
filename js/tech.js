@@ -6053,14 +6053,17 @@ const tech = {
         isGunTech: true,
         maxCount: 9,
         count: 0,
-        frequency: 5,
-        frequencyDefault: 5,
+        frequency: 2,
+        frequencyDefault: 2,
         allowed() {
             return tech.haveGunCheck("missiles") || tech.missileBotCount || tech.haveGunCheck("grenades")
         },
         requires: "missiles, grenades",
         effect() {
-            tech.missileCount += 4;
+            tech.missileCount++;
+            tech.missileCount++;
+            tech.missileCount++;
+            tech.missileCount++;
         },
         remove() {
             tech.missileCount = 1;
