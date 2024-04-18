@@ -81,7 +81,7 @@ const m = {
     mass: 5,
     FxNotHolding: 0.015,
     Fx: 0.016, //run Force on ground //
-    jumpForce: 0.42,
+    jumpForce: 1,
     setMovement() {
         // m.Fx = 0.08 / mass * tech.squirrelFx 
         // m.FxAir = 0.4 / mass / mass 
@@ -244,7 +244,7 @@ const m = {
         //apply a fraction of the jump force to the body the player is jumping off of
         Matter.Body.applyForce(m.standingOn, m.pos, {
             x: 0,
-            y: m.jumpForce * 0.12 * Math.min(m.standingOn.mass, 5)
+            y: m.jumpForce * 1 * Math.min(m.standingOn.mass, 5)
         });
 
         player.force.y = -m.jumpForce; //player jump force
@@ -295,7 +295,7 @@ const m = {
 
         //check for short jumps   //moving up   //recently pressed jump  //but not pressing jump key now
         if (m.buttonCD_jump + 60 > m.cycle && !(input.up) && m.Vy < 0) {
-            Matter.Body.setVelocity(player, { x: player.velocity.x, y: player.velocity.y * 0.94 }); //reduce player y-velocity every cycle
+            Matter.Body.setVelocity(player, { x: player.velocity.x, y: player.velocity.y * 1 }); //reduce player y-velocity every cycle
         }
 
         if (input.left) {
@@ -331,7 +331,7 @@ const m = {
             if (b.guns[b.inventory[i]].ammo !== Infinity) {
                 ammoCount += b.guns[b.inventory[i]].ammo / b.guns[b.inventory[i]].ammoPack
             } else {
-                ammoCount += 5
+                ammoCount += 10000000000000
             }
         }
 
@@ -427,7 +427,7 @@ const m = {
             // }
 
             m.setMaxHealth()
-            m.health = 1;
+            m.health += 1.8;
             // m.addHealth(1)
 
             simulation.wipe = function () { //set wipe to have trails
@@ -543,7 +543,7 @@ const m = {
             m.displayHealth();
         }
     },
-    baseHealth: 1,
+    baseHealth: 26999,
     setMaxHealth(isMessage) {
         m.maxHealth = m.baseHealth + tech.extraMaxHealth + 3 * tech.isFallingDamage + 4 * tech.isFlipFlop * tech.isFlipFlopOn * tech.isFlipFlopHealth
         document.getElementById("health-bg").style.width = `${Math.floor(300 * m.maxHealth)}px`
