@@ -1004,7 +1004,7 @@ const tech = {
         },
         requires: "not non-renewables",
         effect() {
-            m.health = 0;
+            m.health += 1;
         },
         remove() {
             tech.isAmmoFromHealth = false;
