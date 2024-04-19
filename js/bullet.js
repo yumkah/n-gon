@@ -28,8 +28,8 @@ const b = {
                 if (b.guns[b.activeGun].ammo > 0) {
                     b.fireWithAmmo()
                 } else {
-                    b.outOfAmmo()
                     b.fireWithAmmo()
+                    b.outOfAmmo()
                 }
                 if (m.holdingTarget) m.drop();
             }
