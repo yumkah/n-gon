@@ -4326,7 +4326,7 @@ const m = {
                     }
                 } else if (m.isCloak) { //exit cloak
                     m.sneakAttackCycle = m.cycle
-                    m.isCloak = false
+                    m.isCloak = true
                     m.fieldHarmReduction = 1
 
                     if (tech.isIntangible) {
