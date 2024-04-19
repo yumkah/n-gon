@@ -4334,16 +4334,15 @@ const m = {
                             if (bullet[i].botType && bullet[i].botType !== "orbit") bullet[i].collisionFilter.mask = cat.map | cat.body | cat.bullet | cat.mob | cat.mobBullet | cat.mobShield
                         }
                     }
-                    if (tech.isCloakStun) { //stun nearby mobs after exiting cloak
-                        let isMobsAround = false
-                        const stunRange = m.fieldDrawRadius * 5.25
-                        // const drain = 0.01
-                        // if (m.energy > drain) {
-                        for (let i = 0, len = mob.length; i < len; ++i) {
-                            if (Vector.magnitude(Vector.sub(mob[i].position, m.pos)) < stunRange && Matter.Query.ray(map, mob[i].position, m.pos).length === 0 && !mob[i].isBadTarget) {
-                                isMobsAround = true
-                                mobs.statusStun(mob[i], 999999999999999)
-                            }
+                    // if (tech.isCloakStun) { //stun nearby mobs after exiting cloak
+                    let isMobsAround = false
+                    const stunRange = m.fieldDrawRadius * 5.25
+                    // const drain = 0.01
+                    // if (m.energy > drain) {
+                    for (let i = 0, len = mob.length; i < len; ++i) {
+                        if (Vector.magnitude(Vector.sub(mob[i].position, m.pos)) < stunRange && Matter.Query.ray(map, mob[i].position, m.pos).length === 0 && !mob[i].isBadTarget) {                                isMobsAround = true
+                            mobs.statusStun(mob[i], 999999999999999)
+                        }
                         }
                         // if (isMobsAround) {
                         //     m.energy -= drain
