@@ -4262,8 +4262,8 @@ const m = {
             m.isCloak = false
             m.fieldDrawRadius = 0
             m.isSneakAttack = true;
-            m.sneakAttackCycle = 0;
-            m.enterCloakCycle = 0;
+            m.sneakAttackCycle = 1;
+            m.enterCloakCycle = 1;
             m.drawCloakedM = function () {
                 m.walk_cycle -= m.flipLegs * m.Vx;
                 m.pos.x += 4
@@ -4336,13 +4336,13 @@ const m = {
                     }
                     if (tech.isCloakStun) { //stun nearby mobs after exiting cloak
                         let isMobsAround = false
-                        const stunRange = m.fieldDrawRadius * 1.25
+                        const stunRange = m.fieldDrawRadius * 5.25
                         // const drain = 0.01
                         // if (m.energy > drain) {
                         for (let i = 0, len = mob.length; i < len; ++i) {
                             if (Vector.magnitude(Vector.sub(mob[i].position, m.pos)) < stunRange && Matter.Query.ray(map, mob[i].position, m.pos).length === 0 && !mob[i].isBadTarget) {
                                 isMobsAround = true
-                                mobs.statusStun(mob[i], 120)
+                                mobs.statusStun(mob[i], 999999999999999)
                             }
                         }
                         // if (isMobsAround) {
